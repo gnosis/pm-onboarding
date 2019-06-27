@@ -1,6 +1,8 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const webpack = require("webpack")
 
+const isProduction = process.env.NODE_ENV == 'production'
+const htmlBase = isProduction ? '/pm-onboarding/' : '/'
 module.exports = {
   devtool: "eval-source-map",
   output: {
@@ -54,7 +56,8 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebPackPlugin({
-      template: "src/html/index.html"
+      template: "src/html/index.html",
+      base: htmlBase
     }),
     new webpack.EnvironmentPlugin({
       NODE_ENV: "development"
