@@ -3,6 +3,11 @@ const webpack = require("webpack")
 
 const isProduction = process.env.NODE_ENV == 'production'
 const htmlBase = isProduction ? '/pm-onboarding/' : '/'
+
+if (isProduction) {
+  console.log("Running in production environment")
+}
+
 module.exports = {
   devtool: "eval-source-map",
   output: {
@@ -54,11 +59,11 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebPackPlugin({
       template: "src/html/index.html",
       base: htmlBase
     }),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.EnvironmentPlugin({
       NODE_ENV: "development"
     })

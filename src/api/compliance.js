@@ -27,7 +27,9 @@ export const requestUserVerificationToken = async (accountAddress, {
   const response = await fetch(request)
 
   if (response.ok) {
-    return await response.json()
+    const sdkData = await response.json()
+
+    return sdkData.sdkToken
   }
   throw new Error('Invalid Compliance API Response')
 }
