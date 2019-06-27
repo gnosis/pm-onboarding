@@ -2,7 +2,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const webpack = require("webpack")
 
 const isProduction = process.env.NODE_ENV == 'production'
-const htmlBase = isProduction ? '/pm-onboarding/' : '/'
+const htmlBase = isProduction ? '/pm-onboarding' : '/'
 
 if (isProduction) {
   console.log("Running in production environment")
