@@ -30,7 +30,7 @@ class Page extends Component {
   render() {
     return (
       <WalletProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.BASE_URL}>
           <Route path="/" exact render={(routerProps) => (
             <Start {...routerProps} setPersonalData={this.handleSetPersonalData} />
           )} />
