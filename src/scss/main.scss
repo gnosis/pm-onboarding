@@ -1,0 +1,46 @@
+html, body {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+@mixin buttonStyle {
+  padding: 1em 2em;
+  border-radius: 4px;
+  background: none;
+  font-weight: 700;
+  border: 2px solid rgba(0, 0, 0, 1);
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-size: large;
+
+  transition: color .3s, border .3s;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+
+  &:hover {
+    border-color: #00a4c3;
+    color: #00a4c3;
+  }
+}
+
+button ,.like-button {
+  @include buttonStyle;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  text-align: center;
+}
+
+.step-title {
+  font-size: 2em;
+}

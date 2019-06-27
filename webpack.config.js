@@ -3,6 +3,9 @@ const webpack = require("webpack")
 
 module.exports = {
   devtool: "eval-source-map",
+  output: {
+    path: __dirname + '/dist'
+  },
   module: {
     rules: [
       {
@@ -19,8 +22,25 @@ module.exports = {
             loader: "html-loader"
           }
         ]
+      },
+      {
+        test: /\.scss$/,
+        use: [
+            "style-loader", // creates style nodes from JS strings
+            "css-loader", // translates CSS into CommonJS
+            "sass-loader" // compiles Sass to CSS, using Node Sass by default
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+            "css-loader", // translates CSS into CommonJS
+        ]
       }
     ]
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   resolve: {
     alias: {

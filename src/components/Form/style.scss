@@ -1,0 +1,52 @@
+.field {
+  margin-bottom: 1em;
+
+  label {
+    color: rgba(0, 0, 0, 1);
+    font-size: 0.75em;
+  }
+
+  .error {
+    margin-top: 2px;
+    display: block;
+    color: red;
+    font-style: italic;
+  }
+
+  &--textinput {
+    label {
+      display: block;
+    }
+
+    input {
+      height: 2.5em;
+      display: block;
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid rgba(120, 120, 120, 1);
+    }
+
+  }
+
+  &--select {
+    label {
+      display: block;
+    }
+
+    select {
+      margin-top: 5px;
+      width: 100%;
+      height: 2.5em;
+    }
+  }
+
+  &--check {
+    label {
+      display: inline-block;
+    }
+
+    input {
+      display: inline-block;
+    }
+  }
+}

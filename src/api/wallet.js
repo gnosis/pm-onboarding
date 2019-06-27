@@ -11,10 +11,10 @@ export async function connectWallet(networkId) {
     ["injected provider", window.web3.currentProvider],
     ["local websocket", "ws://localhost:8546"],
     ["local http", "http://localhost:8545"],
-    [
+    /*[
       `read-only for id ${networkId}`,
       getReadOnlyProviderForNetworkId(networkId)
-    ],
+    ],*/
   ]) {
     try {
       if (providerCandidate == null) throw new Error("no provider found");

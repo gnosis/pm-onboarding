@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { connectWallet } from 'api/wallet'
 
 const WalletContext = React.createContext({
-  connected: false,
+  status: "unknown",
   network: undefined
 })
 
@@ -11,21 +11,33 @@ export class WalletProvider extends Component {
   constructor(props) {
     super(props)
 
+    this.handleConnectWallet = this.handleConnectWallet.bind(this)
+
     this.state = {
-      status: undefined,
+      status: "unknown",
+      error: undefined,
       network: undefined,
+      connectWallet: this.handleConnectWallet
     }
   }
 
-  async componentDidMount() {
+  async handleConnectWallet() {
     let walletData
     try {
-      walletData = await connectWallet(1)
-    } catch (err) {
-      // set error
-    }
+      walletData = await connectWallet(4)
 
-    this.setState(walletData)
+      this.setState({
+        status: "connected",
+        error: undefined,
+        account: walletData.account
+      })  
+    } catch (err) {
+      this.setState({
+        status: "error",
+        error: err.message,
+        account: undefined,
+      })
+    }
   }
 
   render() {
